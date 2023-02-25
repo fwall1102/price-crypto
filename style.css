@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #021d39;
+}
+
+.coin {
+    display: flex;
+    width: 400px;
+    height: 96px;
+    border-radius: 12px;
+    margin: 40px 2px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.coin .coin-logo {
+    width: 96px;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.coin .coin-logo img {
+    width: 70%;
+    height: 70%;
+}
+
+.coin .coin-name {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.coin .coin-name h4 {
+    color: aliceblue;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.coin .coin-name span {
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0 0 2px;
+}
+
+.coin .coin-price {
+    display: grid;
+    align-items: center;
+    margin-left: auto;
+    padding: 8px 22px 0 0;
+    text-align: right;
+}
+
+.coin .coin-price .price {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: -6px;
+}
+
+.coin .coin-price .change {
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: -30px;
+}
+
+.coin.rising {
+    background: linear-gradient(90deg, #202222, #02702c);
+}
+
+.coin.rising .coin-price .price {
+    color: #0ada5a;
+}
+
+.coin.falling {
+    background: linear-gradient(90deg,#202222, #311002 );
+}
+
+.coin.falling .coin-price .price {
+    color: red;
+}

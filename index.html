@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Crypto price</title>
+</head>
+<body>
+    
+    <div class="container"></div>
+
+    <script>
+
+        const api_url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ccardano%2Csolana%2Cdogecoin&vs_currencies=usd&include_24hr_change=true"
+
+        fetch(api_url)
+        .then(res => res.json())
+        .then(json => {
+            // console.log(json)
+            const container = document.querySelector('.container')
+            const coins = Object.getOwnPropertyNames(json)
+
+            for (let coin of coins ) {
+                const coinInfo = json[`${coin}`]
+                const price = coinInfo.usd;
+                const change = coinInfo.usd_24h_change.toFixed(5)
+
+                container.innerHTML += `
+                    <div class="coin ${change < 0 ? 'falling' : 'rising'} ">
+                        <div class="coin-logo">
+                            <img src="img/${coin}.png">
+                        </div>
+                        <div class="coin-name">
+                            <h4>${coin}</h4>
+                            <span>/USD</span>
+                        </div>
+                        <div class="coin-price">
+                            <span class="price">$${price}</span>
+                            <span class="change">${change}</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+        })
+
+
+
+    </script>
+</body>
+</html>
